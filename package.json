@@ -1,0 +1,28 @@
+{
+  "name": "parent-child-dropdown",
+  "version": "1.0.0",
+  "description": "A vue plugin that loads data in child dropdown when an option is selected from a parent dropdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveedali8086/parent-child-dropdown.git"
+  },
+  "keywords": [
+    "Vue",
+    "Dropdown",
+    "Dependent",
+    "Dropdown"
+  ],
+  "author": "Naveed Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naveedali8086/parent-child-dropdown/issues"
+  },
+  "homepage": "https://github.com/naveedali8086/parent-child-dropdown#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
