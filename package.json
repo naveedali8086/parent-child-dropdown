@@ -1,6 +1,6 @@
 {
   "name": "parent-child-dropdown",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "A vue plugin that loads data in child dropdown when an option is selected from a parent dropdown",
   "main": "src/index.js",
   "scripts": {

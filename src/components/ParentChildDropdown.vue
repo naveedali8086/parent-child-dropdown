@@ -24,7 +24,7 @@
 
             <div class="loader" v-if="show_loader">
 
-                <i class="fa fa-spinner fa-spin fa-2x"></i>
+                <img alt="loader icon" src="../assets/spinner.gif">
 
             </div>
 
@@ -41,10 +41,10 @@
     .loader {
 
         position: absolute;
-        width: 95%;
-        top: 39%;
-        height: 30px;
+        width: 88%;
+        top: 33%;
         text-align: center;
+        padding-bottom: 5px
 
     }
 
@@ -52,7 +52,7 @@
 
 <script>
 
-    import DropDown from './mixins/DropDown'
+    import DropDown from '../mixins/DropDown'
 
     export default {
         mixins: [DropDown]
