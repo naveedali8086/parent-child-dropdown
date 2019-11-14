@@ -2,18 +2,41 @@ export default {
 
     props: {
 
-        'label': String,
-        'get_data_url': String,
-        name: {type: String, default: ''},
-        required: {type: Boolean, default: false},
-        get_data_url_param: {type: String, default: ''},
+        'label': String, /* Label of the Dropdown */
+
+        name: {type: String, default: ''}, /* name attribute of the 'select' html control */
+
+        required: {type: Boolean, default: false}, /* Whether the the dropdown's value is required or optional */
+
+        'url': String, /* The URL where the data for the dropdown will load from */
+
+        request_param: {
+            type: String,
+            default: ''
+        }, /* The HTTP request parameter's name that will be used at server to filter dropdown data */
+
+        event_to_fire: {
+            type: String,
+            default: ''
+        }, /* This could be any text but its value must match the value of ' event_to_listen' attribute of child dropdown */
+
+        event_to_listen: {
+            type: String,
+            default: ''
+        }, /* This could be any text, but its value must match the value of 'event_to_listen' attribute of parent dropdown */
+
+        old_selected_option: {type: String, default: ''}, /* Previously selected value */
+
+        err_msg_from_parent: {
+            type: String,
+            default: ''
+        }, /* Message from server if the dropdown value does not meet the validations at server */
+
+        hide_if_no_data_found: {type: Boolean, default: false},
+
         edit_url: {type: String, default: ''},
+
         delete_url: {type: String, default: ''},
-        event_to_fire: {type: String, default: ''},
-        event_to_listen: {type: String, default: ''},
-        old_selected_option: {type: String, default: ''},
-        err_msg_from_parent: {type: String, default: ''},
-        hide_if_no_data_found: {type: Boolean, default: false}
 
     },
 
@@ -31,7 +54,7 @@ export default {
 
             show_loader: false,
 
-            get_data_url_val: '', // filter to be used while getting data for the dropDown
+            request_param_val: '', // filter to be used while getting data for the dropDown
 
             time_out_duration: 5000, // automatically hide error/success message after 5 seconds from screen
 
@@ -52,7 +75,7 @@ export default {
         // Remember 'event_to_listen' would be empty for independent dropDowns (i.e. country dropDown)
         if (!this.event_to_listen) {
 
-            this.getDropdownData(this.get_data_url_val);
+            this.getDropdownData(this.request_param_val);
 
         }
 
@@ -67,9 +90,9 @@ export default {
 
                 if (selected_item_id) {
 
-                    this.get_data_url_val = selected_item_id;
+                    this.request_param_val = selected_item_id;
 
-                    this.getDropdownData(this.get_data_url_val);
+                    this.getDropdownData(this.request_param_val);
 
                 } else {
 
@@ -110,7 +133,7 @@ export default {
             this.show_loader = true;
 
             /* there should not be any space before and after the '?' in following line */
-            let url = `${this.base_url}${this.get_data_url}?${this.get_data_url_param}=${selected_item_id}`;
+            let url = `${this.base_url}${this.url}?${this.request_param}=${selected_item_id}`;
 
             axios.get(url)
                 .then(response => {

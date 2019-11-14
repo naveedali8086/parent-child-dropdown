@@ -48,6 +48,10 @@
 
     }
 
+    .required {
+        color: #ff0000
+    }
+
 </style>
 
 <script>
