@@ -78,6 +78,12 @@ and event fired by 'City dropdown' is same as the event listened by 'Location dr
 2. The value 'country_id' of the 'request_param' attribute (in case of City dropdown) will be 
   used at server to filter the cities of coresponding country and same goes for location dropdown.
 
+3. Server side code must be written that will return countries, cities & locations at following URLS:<br>
+http://your-domain.com/get-countries<br>
+http://your-domain.com/get-cities?country_id=xyz<br>
+http://your-domain.com/get-locations?city_id=xyz<br>
+
+Note that the query string will be passed by plugin to server if 'request_param' has been defined as plugin attribute. (as shown above)
 
 ## Props
 | Name                | Type    | Required                                   | Default              | Description                                                                                                  |
